@@ -6,7 +6,7 @@
 /*   By: iwillens <iwillens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 22:49:08 by iwillens          #+#    #+#             */
-/*   Updated: 2021/07/24 10:22:21 by iwillens         ###   ########.fr       */
+/*   Updated: 2021/07/29 20:21:05 by iwillens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,34 @@ void print_operation(char *name, int print)
 	}
 }
 
-int is_sorted(t_stack *stack)
+int is_sorted(t_stack *stack, int *list, int size)
 {
 	int i;
 	int sorted;
 
 	i = 0;
 	sorted = TRUE;	
-	while (i < stack->size_a - 1)
+	while (i < size - 1)
 	{
-		if (stack->a[i] == stack->a[i + 1])
+		if (list[i] == list[i + 1])
 			ex_quit(stack, TRUE);
-		if (stack->a[i] > stack->a[i + 1])
+		if (list[i] > list[i + 1])
+			sorted = FALSE;
+		i++;
+	}
+	return (sorted);
+}
+
+int rev_is_sorted(int *list, int size)
+{
+	int i;
+	int sorted;
+
+	i = 0;
+	sorted = TRUE;	
+	while (i < size - 1)
+	{
+		if (list[i] < list[i + 1])
 			sorted = FALSE;
 		i++;
 	}
