@@ -6,7 +6,7 @@
 /*   By: iwillens <iwillens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 17:53:14 by iwillens          #+#    #+#             */
-/*   Updated: 2021/07/29 20:20:23 by iwillens         ###   ########.fr       */
+/*   Updated: 2021/07/30 20:01:54 by iwillens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ void rev_rotate_r(t_stack *stack, int print);
 void push_a(t_stack *stack, int print);
 void push_b(t_stack *stack, int print);
 
+
 int is_sorted(t_stack *stack, int *list, int size);
 int rev_is_sorted(int *list, int size);
 void print_operation(char *name, int print);
@@ -102,7 +103,7 @@ void ft_radixsort(t_stack *stack);
 int *duplicate_array(int *list, int size);
 int max(int a, int b);
 
-void smallsort(t_stack *stack);
+void ft_smallsort(t_stack *stack);
 
 
 #endif

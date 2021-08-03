@@ -6,50 +6,66 @@
 #    By: iwillens <iwillens@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/23 17:38:02 by iwillens          #+#    #+#              #
-#    Updated: 2021/07/24 00:07:23 by iwillens         ###   ########.fr        #
+#    Updated: 2021/07/30 22:34:39 by iwillens         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
 CC = clang
-CCFLAGS = -Wall -Werror -Wextra
+CCFLAGS = -Wall -Werror -Wextra -g -fsanitize=address
 
 SRC_DIR = ./srcs
 OBJ_DIR = ./build
 INC_DIR = ./includes
 
-SRCS =	${SRC_DIR}/push_swap.c \
-		${SRC_DIR}/libft_basics.c \
-		${SRC_DIR}/libft_atoi.c \
-		${SRC_DIR}/arguments.c \
-		${SRC_DIR}/exit.c \
-		${SRC_DIR}/stack_print.c \
-		${SRC_DIR}/oper_push.c \
-		${SRC_DIR}/oper_rotate.c \
-		${SRC_DIR}/oper_swap.c \
-		${SRC_DIR}/oper_reverse.c \
-		${SRC_DIR}/oper_helpers.c \
-		${SRC_DIR}/quicksort.c
+COMMON_FILES =	${SRC_DIR}/libft_basics.c \
+				${SRC_DIR}/libft_atoi.c \
+				${SRC_DIR}/arguments.c \
+				${SRC_DIR}/exit.c \
+				${SRC_DIR}/stack_print.c \
+				${SRC_DIR}/oper_push.c \
+				${SRC_DIR}/oper_rotate.c \
+				${SRC_DIR}/oper_swap.c \
+				${SRC_DIR}/oper_reverse.c \
+				${SRC_DIR}/oper_helpers.c \
+				${SRC_DIR}/sort_small.c \
+				${SRC_DIR}/sort_radix.c
+
+PS_SRCS = ${COMMON_FILES} \
+		${SRC_DIR}/push_swap.c
+
+CK_SRCS = ${COMMON_FILES} \
+		${SRC_DIR}/checker.c \
+		${SRC_DIR}/checker_ops.c \
+		${SRC_DIR}/checker_validate.c \
+		${SRC_DIR}/checker_gnl.c
 
 
 
-OBJS = $(patsubst ${SRC_DIR}/%.c, ${OBJ_DIR}/%.o, ${SRCS})
+PS_OBJS = $(patsubst ${SRC_DIR}/%.c, ${OBJ_DIR}/%.o, ${PS_SRCS})
+CK_OBJS = $(patsubst ${SRC_DIR}/%.c, ${OBJ_DIR}/%.o, ${CK_SRCS})
 
 all: ${NAME}
 
-${NAME}: ${OBJS} ${INC_DIR}
-	${CC} ${CCFLAGS} ${OBJS} -I ${INC_DIR} -o ${NAME}
+${NAME}: ${PS_OBJS} ${INC_DIR}
+	${CC} ${CCFLAGS} ${PS_OBJS} -I ${INC_DIR} -o ${NAME}
+
+checker: ${CK_OBJS} ${INC_DIR}
+	${CC} ${CCFLAGS} ${CK_OBJS} -I ${INC_DIR} -o $@
 
 ${OBJ_DIR}/%.o: ${SRC_DIR}/%.c ${INC_DIR}
 	mkdir -p ${OBJ_DIR}
 	${CC} -c ${CCFLAGS} $< -I ${INC_DIR} -o $@
+
+
 
 clean:
 	rm -rf ${OBJ_DIR}
 
 fclean: clean
 	rm -rf ./${NAME}
+	rm -rf ./checker
 
 re: fclean all
 
