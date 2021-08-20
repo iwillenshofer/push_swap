@@ -51,7 +51,7 @@ if [ "$(eval uname)" == "Linux" ]
 then
 	CHECKER=./checker_linux
 else
-	CHECKER=./checker
+	CHECKER=./checker_mac
 fi
 
 if ! command -v $CHECKER &> /dev/null

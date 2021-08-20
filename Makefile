@@ -6,7 +6,7 @@
 #    By: iwillens <iwillens@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/23 17:38:02 by iwillens          #+#    #+#              #
-#    Updated: 2021/07/30 22:34:39 by iwillens         ###   ########.fr        #
+#    Updated: 2021/08/08 21:00:59 by iwillens         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,8 +51,8 @@ all: ${NAME}
 ${NAME}: ${PS_OBJS} ${INC_DIR}
 	${CC} ${CCFLAGS} ${PS_OBJS} -I ${INC_DIR} -o ${NAME}
 
-checker: ${CK_OBJS} ${INC_DIR}
-	${CC} ${CCFLAGS} ${CK_OBJS} -I ${INC_DIR} -o $@
+bonus: ${CK_OBJS} ${INC_DIR}
+	${CC} ${CCFLAGS} ${CK_OBJS} -I ${INC_DIR} -o checker
 
 ${OBJ_DIR}/%.o: ${SRC_DIR}/%.c ${INC_DIR}
 	mkdir -p ${OBJ_DIR}
