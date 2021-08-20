@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker_gnl.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iwillens <iwillens@student.42.fr>          +#+  +:+       +#+        */
+/*   By: iwillens <iwillens@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/30 22:18:10 by iwillens          #+#    #+#             */
-/*   Updated: 2021/08/08 21:55:51 by iwillens         ###   ########.fr       */
+/*   Updated: 2021/08/20 18:28:42 by iwillens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,41 @@ char *ft_addchar(char *s1, char c)
 	return (s2);
 }
 
+int	ft_isspace(char c)
+{
+	if (c == ' ' || c == '\t' || c == '\n' || c == '\f' || c == '\v' || c == '\r')
+		return (TRUE);
+	return(FALSE);
+}
+
 char **add_item(char **ops, char *item, size_t size)
 {
-	
+	size_t len;
+	char **tmp;
+	size_t i;
+
+	len = 0;
+	i = 0;
+	if (!(size))
+		return (ops);
+	while (ops[len])
+		len++;
+	tmp = (char**)malloc(sizeof(char*) * (len + 2));
+	while (i < len)
+	{
+		tmp[i] = ops[i];
+		i++;
+	}
+	tmp[i] = (char*)malloc(sizeof(char) * (size + 1));
+	tmp[i][size] = '\0';
+	len = 0;
+	while (len < size)
+	{
+		tmp[i][len] = item[len];
+		len++;
+	}
+	free(ops);
+	return (tmp);
 }
 
 char **string_to_operators(char *string)
@@ -48,14 +80,19 @@ char **string_to_operators(char *string)
 	i = 0;
 	while (string[i])
 	{
+		while (ft_isspace(string[i]))
+			i++;
 		len = 0;
-		while (string[i + len] && (string[i + len] != '\n'))
+		while (string[i + len] && !ft_isspace(string[i + len]))
 			len++;
 		if (len)
 			ops = add_item(ops, &string[i], len);
 		i += len;
+		if (!(string[i]))
+			break;
 		i++;
 	}
+	return(ops);
 }
 
 char *read_stdin(void)
