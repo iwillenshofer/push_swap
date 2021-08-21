@@ -6,7 +6,7 @@
 #    By: iwillens <iwillens@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/23 17:38:02 by iwillens          #+#    #+#              #
-#    Updated: 2021/08/21 18:02:04 by iwillens         ###   ########.fr        #
+#    Updated: 2021/08/21 19:07:00 by iwillens         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,6 @@ COMMON_FILES =	${SRC_DIR}/libft_basics.c \
 				${SRC_DIR}/arguments.c \
 				${SRC_DIR}/arguments_helpers.c \
 				${SRC_DIR}/exit.c \
-				${SRC_DIR}/stack_print.c \
 				${SRC_DIR}/oper_push.c \
 				${SRC_DIR}/oper_rotate.c \
 				${SRC_DIR}/oper_swap.c \

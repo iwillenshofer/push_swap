@@ -6,7 +6,7 @@
 /*   By: iwillens <iwillens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 18:50:50 by iwillens          #+#    #+#             */
-/*   Updated: 2021/08/21 18:26:15 by iwillens         ###   ########.fr       */
+/*   Updated: 2021/08/21 19:02:53 by iwillens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,16 +83,16 @@ void	duplicate_checker(t_stack *stack)
 ** the new argv must be freed on exit.
 */
 
-char **special_arguments(t_stack *stack, char **argv)
+char	**special_arguments(t_stack *stack, char **argv)
 {
-	int i;
-	int numeric;
+	int	i;
+	int	numeric;
 
 	i = 0;
 	numeric = TRUE;
 	while (argv[1][i])
 	{
-		if(!(ft_isnumber(argv[1][i])))
+		if (!(ft_isnumber(argv[1][i])))
 			numeric = FALSE;
 		i++;
 	}
@@ -101,19 +101,6 @@ char **special_arguments(t_stack *stack, char **argv)
 	stack->special_arg = string_to_operators(argv[1]);
 	stack->size = array_lenght(stack->special_arg);
 	return (stack->special_arg);
-}
-
-/*
-** Initializes the stack to zero.
-*/
-
-void init_stack(t_stack *stack)
-{
-	stack->a = 0x0;
-	stack->b = 0x0;
-	stack->size_a = 0;
-	stack->size_b = 0;
-	stack->special_arg = 0x0;
 }
 
 /*

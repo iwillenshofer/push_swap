@@ -6,7 +6,7 @@
 /*   By: iwillens <iwillens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 18:50:28 by iwillens          #+#    #+#             */
-/*   Updated: 2021/08/21 17:48:49 by iwillens         ###   ########.fr       */
+/*   Updated: 2021/08/21 19:03:55 by iwillens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	free_ops(char **ss)
 
 void	free_stacks(t_stack *stack)
 {
-	if(stack->special_arg)
+	if (stack->special_arg)
 		free_ops(stack->special_arg);
 	free(stack->a);
 	free(stack->b);
