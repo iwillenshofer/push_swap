@@ -6,7 +6,7 @@
 /*   By: iwillens <iwillens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 17:53:14 by iwillens          #+#    #+#             */
-/*   Updated: 2021/08/21 19:18:51 by iwillens         ###   ########.fr       */
+/*   Updated: 2021/08/21 20:06:34 by iwillens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ t_stack	*get_arguments(int argc, char **argv);
 /*
 ** Operations
 */
-
 void	swap(int *a, int *b);
 void	swap_a(t_stack *stack, int print);
 void	swap_b(t_stack *stack, int print);
@@ -95,7 +94,6 @@ int		max(int a, int b);
 /*
 ** small sort
 */
-
 void	ft_smallsort(t_stack *stack);
 
 /*
