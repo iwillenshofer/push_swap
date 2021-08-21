@@ -6,7 +6,7 @@
 #    By: iwillens <iwillens@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/23 17:38:02 by iwillens          #+#    #+#              #
-#    Updated: 2021/08/08 21:00:59 by iwillens         ###   ########.fr        #
+#    Updated: 2021/08/21 18:02:04 by iwillens         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ INC_DIR = ./includes
 COMMON_FILES =	${SRC_DIR}/libft_basics.c \
 				${SRC_DIR}/libft_atoi.c \
 				${SRC_DIR}/arguments.c \
+				${SRC_DIR}/arguments_helpers.c \
 				${SRC_DIR}/exit.c \
 				${SRC_DIR}/stack_print.c \
 				${SRC_DIR}/oper_push.c \
@@ -36,10 +37,10 @@ PS_SRCS = ${COMMON_FILES} \
 		${SRC_DIR}/push_swap.c
 
 CK_SRCS = ${COMMON_FILES} \
-		${SRC_DIR}/checker.c \
-		${SRC_DIR}/checker_ops.c \
-		${SRC_DIR}/checker_validate.c \
-		${SRC_DIR}/checker_gnl.c
+		${SRC_DIR}/bonus_checker.c \
+		${SRC_DIR}/bonus_checker_ops.c \
+		${SRC_DIR}/bonus_checker_validate.c \
+		${SRC_DIR}/bonus_checker_gnl.c
 
 
 

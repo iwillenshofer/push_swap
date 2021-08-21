@@ -6,7 +6,7 @@
 /*   By: iwillens <iwillens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 18:50:50 by iwillens          #+#    #+#             */
-/*   Updated: 2021/07/30 19:42:18 by iwillens         ###   ########.fr       */
+/*   Updated: 2021/08/21 18:26:15 by iwillens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,46 @@ void	duplicate_checker(t_stack *stack)
 }
 
 /*
+** arguments special case:
+** in case only one argument is passed, separating numbers
+** by spaces, it is parsed by this function. In that case, 
+** the new argv must be freed on exit.
+*/
+
+char **special_arguments(t_stack *stack, char **argv)
+{
+	int i;
+	int numeric;
+
+	i = 0;
+	numeric = TRUE;
+	while (argv[1][i])
+	{
+		if(!(ft_isnumber(argv[1][i])))
+			numeric = FALSE;
+		i++;
+	}
+	if (numeric)
+		return (argv);
+	stack->special_arg = string_to_operators(argv[1]);
+	stack->size = array_lenght(stack->special_arg);
+	return (stack->special_arg);
+}
+
+/*
+** Initializes the stack to zero.
+*/
+
+void init_stack(t_stack *stack)
+{
+	stack->a = 0x0;
+	stack->b = 0x0;
+	stack->size_a = 0;
+	stack->size_b = 0;
+	stack->special_arg = 0x0;
+}
+
+/*
 * gets the command line arguments and returns them into a stack.
 * atoi will check if all items are numbers
 * then we check for duplicates
@@ -86,17 +126,23 @@ t_stack	*get_arguments(int argc, char **argv)
 {
 	int		i;
 	t_stack	*stack;
+	int		initial_arg;
 
 	i = 0;
-	stack = malloc(sizeof(t_stack));
+	initial_arg = 1;
+	stack = (t_stack *)malloc(sizeof(t_stack));
+	init_stack(stack);
 	stack->size = argc - 1;
+	if (argc == 2)
+		argv = special_arguments(stack, argv);
 	stack->size_a = stack->size;
-	stack->size_b = 0;
 	stack->a = (int *)malloc(sizeof(int) * stack->size);
 	stack->b = (int *)malloc(sizeof(int) * stack->size);
+	if (stack->special_arg)
+		initial_arg = 0;
 	while (i < stack->size)
 	{
-		stack->a[i] = ft_atoi(argv[i + 1], stack);
+		stack->a[i] = ft_atoi(argv[i + initial_arg], stack);
 		stack->b[i] = 0;
 		i++;
 	}

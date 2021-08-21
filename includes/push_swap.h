@@ -6,7 +6,7 @@
 /*   By: iwillens <iwillens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 17:53:14 by iwillens          #+#    #+#             */
-/*   Updated: 2021/07/30 20:01:54 by iwillens         ###   ########.fr       */
+/*   Updated: 2021/08/21 18:22:06 by iwillens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef	struct s_stack
 	int size;
 	int size_a;
 	int size_b;
+	char **special_arg;
 }	t_stack;
 
 /*
@@ -104,6 +105,16 @@ int *duplicate_array(int *list, int size);
 int max(int a, int b);
 
 void ft_smallsort(t_stack *stack);
+
+/*
+** arguments helper
+*/
+int		ft_isspace(char c);
+char	*ft_addchar(char *s1, char c);
+char	**add_item(char **ops, char *item, size_t size);
+char	**string_to_operators(char *string);
+int	array_lenght(char **s);
+
 
 
 #endif
