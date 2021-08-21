@@ -17,12 +17,29 @@
 */
 
 /*
+** Free operators (for checker) and special_arg (for push_swap)
+*/
+void	free_ops(char **ss)
+{
+	int	i;
+
+	i = 0;
+	while (ss[i])
+	{
+		free(ss[i]);
+		i++;
+	}
+	free(ss);
+}
+
+/*
 ** Frees both stacks
 */
 
 void	free_stacks(t_stack *stack)
 {
-	free(stack->special_arg);
+	if(stack->special_arg)
+		free_ops(stack->special_arg);
 	free(stack->a);
 	free(stack->b);
 	free(stack);

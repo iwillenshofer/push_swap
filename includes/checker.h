@@ -23,5 +23,4 @@ void checker_exec_op(char *s, t_stack *stack);
 void checker_exec_ops(char **ops, t_stack *stack);
 char **read_stdin(void);
 
-
 #endif

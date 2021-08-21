@@ -12,19 +12,6 @@
 
 #include "checker.h"
 
-void	free_ops(char **ss)
-{
-	int	i;
-
-	i = 0;
-	while (ss[i])
-	{
-		free(ss[i]);
-		i++;
-	}
-	free(ss);
-}
-
 int	main(int argc, char *argv[])
 {
 	t_stack	*stack;

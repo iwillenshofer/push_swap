@@ -59,8 +59,6 @@ ${OBJ_DIR}/%.o: ${SRC_DIR}/%.c ${INC_DIR}
 	mkdir -p ${OBJ_DIR}
 	${CC} -c ${CCFLAGS} $< -I ${INC_DIR} -o $@
 
-
-
 clean:
 	rm -rf ${OBJ_DIR}
 
