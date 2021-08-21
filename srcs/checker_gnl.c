@@ -12,6 +12,14 @@
 
 #include "checker.h"
 
+int	ft_isspace(char c)
+{
+	if (c == ' ' || c == '\t' || c == '\n' || c == '\f'
+		|| c == '\v' || c == '\r')
+		return (TRUE);
+	return (FALSE);
+}
+
 char	*ft_addchar(char *s1, char c)
 {
 	int		size;
@@ -30,14 +38,6 @@ char	*ft_addchar(char *s1, char c)
 	s2[size + 1] = '\0';
 	free(s1);
 	return (s2);
-}
-
-int	ft_isspace(char c)
-{
-	if (c == ' ' || c == '\t' || c == '\n' || c == '\f'
-		|| c == '\v' || c == '\r')
-		return (TRUE);
-	return (FALSE);
 }
 
 char	**add_item(char **ops, char *item, size_t size)
