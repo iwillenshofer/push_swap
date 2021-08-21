@@ -6,7 +6,7 @@
 #    By: iwillens <iwillens@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/23 17:38:02 by iwillens          #+#    #+#              #
-#    Updated: 2021/08/21 19:07:00 by iwillens         ###   ########.fr        #
+#    Updated: 2021/08/21 19:17:21 by iwillens         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,8 @@ COMMON_FILES =	${SRC_DIR}/libft_basics.c \
 				${SRC_DIR}/oper_reverse.c \
 				${SRC_DIR}/oper_helpers.c \
 				${SRC_DIR}/sort_small.c \
-				${SRC_DIR}/sort_radix.c
+				${SRC_DIR}/sort_radix.c \
+				${SRC_DIR}/push_init.c
 
 PS_SRCS = ${COMMON_FILES} \
 		${SRC_DIR}/push_swap.c
@@ -40,8 +41,6 @@ CK_SRCS = ${COMMON_FILES} \
 		${SRC_DIR}/bonus_checker_ops.c \
 		${SRC_DIR}/bonus_checker_validate.c \
 		${SRC_DIR}/bonus_checker_gnl.c
-
-
 
 PS_OBJS = $(patsubst ${SRC_DIR}/%.c, ${OBJ_DIR}/%.o, ${PS_SRCS})
 CK_OBJS = $(patsubst ${SRC_DIR}/%.c, ${OBJ_DIR}/%.o, ${CK_SRCS})

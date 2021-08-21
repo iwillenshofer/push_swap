@@ -6,7 +6,7 @@
 /*   By: iwillens <iwillens@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/23 17:53:14 by iwillens          #+#    #+#             */
-/*   Updated: 2021/08/21 19:13:05 by iwillens         ###   ########.fr       */
+/*   Updated: 2021/08/21 19:18:51 by iwillens         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,11 @@ int		max(int a, int b);
 void	ft_smallsort(t_stack *stack);
 
 /*
+** init stack
+*/
+void	init_stack(t_stack *stack);
+
+/*
 ** arguments helper
 */
 int		ft_isspace(char c);
@@ -106,10 +111,5 @@ char	*ft_addchar(char *s1, char c);
 char	**add_item(char **ops, char *item, size_t size);
 char	**string_to_operators(char *string);
 int		array_lenght(char **s);
-
-/*
-** push_swap
-*/
-void	init_stack(t_stack *stack);
 
 #endif
