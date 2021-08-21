@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void print_operation(char *name, int print)
+void	print_operation(char *name, int print)
 {
 	if (print)
 	{
@@ -21,13 +21,13 @@ void print_operation(char *name, int print)
 	}
 }
 
-int is_sorted(t_stack *stack, int *list, int size)
+int	is_sorted(t_stack *stack, int *list, int size)
 {
-	int i;
-	int sorted;
+	int	i;
+	int	sorted;
 
 	i = 0;
-	sorted = TRUE;	
+	sorted = TRUE;
 	while (i < size - 1)
 	{
 		if (list[i] == list[i + 1])
@@ -39,13 +39,13 @@ int is_sorted(t_stack *stack, int *list, int size)
 	return (sorted);
 }
 
-int rev_is_sorted(int *list, int size)
+int	rev_is_sorted(int *list, int size)
 {
-	int i;
-	int sorted;
+	int	i;
+	int	sorted;
 
 	i = 0;
-	sorted = TRUE;	
+	sorted = TRUE;
 	while (i < size - 1)
 	{
 		if (list[i] < list[i + 1])

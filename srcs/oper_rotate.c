@@ -12,9 +12,9 @@
 
 #include "push_swap.h"
 
-void rotate(int *list, int size)
+void	rotate(int *list, int size)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (i < size - 1)
@@ -24,21 +24,21 @@ void rotate(int *list, int size)
 	}
 }
 
-void rotate_a(t_stack *stack, int print)
+void	rotate_a(t_stack *stack, int print)
 {
 	print_operation("ra", print);
 	if (stack->size_a > 1)
 		rotate(stack->a, stack->size_a);
 }
 
-void rotate_b(t_stack *stack, int print)
+void	rotate_b(t_stack *stack, int print)
 {
 	print_operation("rb", print);
 	if (stack->size_b > 1)
 		rotate(stack->b, stack->size_b);
 }
 
-void rotate_r(t_stack *stack, int print)
+void	rotate_r(t_stack *stack, int print)
 {
 	print_operation("rr", print);
 	rotate_a(stack, FALSE);

@@ -12,16 +12,14 @@
 
 #include "push_swap.h"
 #include <stdio.h>
-//sources
-//https://en.wikipedia.org/wiki/Median_of_medians
 
-int *duplicate_array(int *list, int size)
+int	*duplicate_array(int *list, int size)
 {
-	int i;
-	int *dup;
+	int	i;
+	int	*dup;
 
 	i = 0;
-	dup = (int*)malloc(sizeof(int) * size);
+	dup = (int *)malloc(sizeof(int) * size);
 	while (i < size)
 	{
 		dup[i] = list[i];
@@ -33,11 +31,11 @@ int *duplicate_array(int *list, int size)
 /*
 ** returns the median of a list of integers.
 */
-int median(int *list, int size)
+int	median(int *list, int size)
 {
-	int i;
-	int j;
-	int ret;
+	int	i;
+	int	j;
+	int	ret;
 
 	list = duplicate_array(list, size);
 	i = 0;
@@ -50,14 +48,14 @@ int median(int *list, int size)
 				swap(&list[j], &list[j + 1]);
 			j = j + 1;
 		}
-		i++; 
+		i++;
 	}
 	ret = list[(size / 2)];
 	free(list);
-	return(ret);
+	return (ret);
 }
 
-int max(int a, int b)
+int	max(int a, int b)
 {
 	if (a < b)
 		return (b);
@@ -68,10 +66,10 @@ int max(int a, int b)
 ** RADIX SORT
 ** returns the qtd of bits of the max number among the elements of a list;
 */
-int bits_amount(t_stack *stack)
+int	bits_amount(t_stack *stack)
 {
-	int size;
-	int bits;
+	int	size;
+	int	bits;
 
 	bits = 0;
 	size = stack->size;
@@ -83,12 +81,12 @@ int bits_amount(t_stack *stack)
 	return (bits);
 }
 
-//smart_sort
-void ft_radixsort(t_stack *stack)
+void	ft_radixsort(t_stack *stack)
 {
-	int bit;
-	int mbit;
-	int i;
+	int	bit;
+	int	mbit;
+	int	i;
+
 	bit = 0;
 	mbit = bits_amount(stack);
 	while (bit < mbit && !(is_sorted(stack, stack->a, stack->size_a)))
@@ -104,7 +102,6 @@ void ft_radixsort(t_stack *stack)
 		}
 		bit++;
 		while (stack->size_b)
-			push_a(stack, TRUE);	
+			push_a(stack, TRUE);
 	}
-
 }

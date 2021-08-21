@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
-void run_sorting(t_stack *stack)
+void	run_sorting(t_stack *stack)
 {
 	if (stack->size <= 6)
 		ft_smallsort(stack);
@@ -22,7 +22,7 @@ void run_sorting(t_stack *stack)
 
 int	main(int argc, char *argv[])
 {
-	t_stack *stack;
+	t_stack	*stack;
 
 	if (argc <= 1)
 		exit(0);

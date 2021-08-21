@@ -21,7 +21,7 @@ int checker_validate_ops(char **ops);
 int	ft_strcmp(char *s1, char *s2);
 void checker_exec_op(char *s, t_stack *stack);
 void checker_exec_ops(char **ops, t_stack *stack);
-char *read_stdin(void);
+char **read_stdin(void);
 
 
 #endif

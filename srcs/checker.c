@@ -12,28 +12,31 @@
 
 #include "checker.h"
 
-int main(int argc, char *argv[])
+void	free_ops(char **ss)
 {
-	char *ops[4];
-	
-	ops[0] = "ra";
-	ops[1] = "ra";
-	ops[2] = "ra";
-	ops[3] = NULL;
+	int	i;
 
-	t_stack *stack;
+	i = 0;
+	while (ss[i])
+	{
+		free(ss[i]);
+		i++;
+	}
+	free(ss);
+}
+
+int	main(int argc, char *argv[])
+{
+	t_stack	*stack;
+	char	**ops;
 
 	if (argc <= 1)
 		exit(0);
 	stack = get_arguments(argc, argv);
-	
-
-	// Then Get ops here
-	// with a read function
-	read_stdin();
+	ops = read_stdin();
 	if (!(checker_validate_ops(ops)))
 	{
-		//must free ops here
+		free_ops(ops);
 		ex_quit(stack, TRUE);
 	}
 	checker_exec_ops(ops, stack);
@@ -41,6 +44,6 @@ int main(int argc, char *argv[])
 		ft_putstr("KO\n");
 	else
 		ft_putstr("OK\n");
-	//must free ops here too
+	free_ops(ops);
 	ex_quit(stack, FALSE);
 }

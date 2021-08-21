@@ -20,7 +20,7 @@
 ** Frees both stacks
 */
 
-void free_stacks(t_stack *stack)
+void	free_stacks(t_stack *stack)
 {
 	free(stack->a);
 	free(stack->b);
@@ -32,7 +32,7 @@ void free_stacks(t_stack *stack)
 ** exit code also depends on content of error (true or false, 1/0 )
 */
 
-void ex_quit(t_stack *stack, int error)
+void	ex_quit(t_stack *stack, int error)
 {
 	if (error)
 		ft_putstr("Error\n");

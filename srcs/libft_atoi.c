@@ -19,7 +19,7 @@
 ** the following character is a number.
 */
 
-int ft_issignal(char *str, int pos)
+int	ft_issignal(char *str, int pos)
 {
 	if (!(pos) && str[pos] == '-' && ft_isnumber(str[pos + 1]))
 		return (-1);
@@ -34,7 +34,7 @@ int ft_issignal(char *str, int pos)
 ** returns nb if ok.
 */
 
-long long check_intsize(long long nb, t_stack *stack)
+long long	check_intsize(long long nb, t_stack *stack)
 {
 	if (nb > INT_MAX || nb < INT_MIN)
 		ex_quit(stack, TRUE);
@@ -45,12 +45,12 @@ long long check_intsize(long long nb, t_stack *stack)
 ** modified version of libft atoi, converts string into numbers.
 ** receives t_stack so it can free it in case of error.
 */
-int ft_atoi(char *str, t_stack *stack)
+int	ft_atoi(char *str, t_stack *stack)
 {
-	int	i;
-	long long nb;
-	int signal;
-	
+	int			i;
+	long long	nb;
+	int			signal;
+
 	i = 0;
 	nb = 0;
 	signal = 1;

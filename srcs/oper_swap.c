@@ -16,9 +16,9 @@
 ** simple int swap function.
 */
 
-void swap(int *a, int *b)
+void	swap(int *a, int *b)
 {
-	int swp;
+	int	swp;
 
 	swp = *a;
 	*a = *b;
@@ -28,7 +28,7 @@ void swap(int *a, int *b)
 /*
 ** sa operation
 */
-void swap_a(t_stack *stack, int print)
+void	swap_a(t_stack *stack, int print)
 {
 	print_operation("sa", print);
 	if (stack->size_a > 1)
@@ -38,18 +38,17 @@ void swap_a(t_stack *stack, int print)
 /*
 ** sb operation
 */
-void swap_b(t_stack *stack, int print)
+void	swap_b(t_stack *stack, int print)
 {
 	print_operation("sb", print);
 	if (stack->size_b > 1)
 		swap(&(stack->b[0]), &(stack->b[1]));
 }
 
-
 /*
 ** ss operation
 */
-void swap_s(t_stack *stack, int print)
+void	swap_s(t_stack *stack, int print)
 {
 	print_operation("ss", print);
 	swap_a(stack, FALSE);

@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void push_a(t_stack *stack, int print)
+void	push_a(t_stack *stack, int print)
 {
 	print_operation("pa", print);
 	if (stack->size_b)
@@ -25,7 +25,7 @@ void push_a(t_stack *stack, int print)
 	}
 }
 
-void push_b(t_stack *stack, int print)
+void	push_b(t_stack *stack, int print)
 {
 	print_operation("pb", print);
 	if (stack->size_a)

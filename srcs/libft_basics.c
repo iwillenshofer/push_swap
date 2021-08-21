@@ -10,19 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
 /*
  * returns string lenght
  */
 int	ft_strlen(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
 		i++;
-	return (i);	
+	return (i);
 }
 
 /*
@@ -30,7 +30,7 @@ int	ft_strlen(char *str)
  */
 void	ft_putstr(char *str)
 {
-	int size;
+	int	size;
 
 	size = ft_strlen(str);
 	write(1, str, size);
@@ -49,7 +49,7 @@ void	ft_putchar(char c)
 ** check if a char is numeric 
 */
 
-int ft_isnumber (char c)
+int	ft_isnumber(char c)
 {
 	if (c >= '0' && c <= '9')
 		return (TRUE);
@@ -62,8 +62,8 @@ int ft_isnumber (char c)
 
 void	ft_putnbr(int nb)
 {
-	char c;
-	long long number;
+	char		c;
+	long long	number;
 
 	number = (long long)nb;
 	if (number < 0)

@@ -10,17 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
 
 /*
 ** returns the position of an element by calculating
 ** how many numbers are smaller than it
 */
 
-int index_position(int *list, int size, int nb)
+int	index_position(int *list, int size, int nb)
 {
-	int i;
-	int pos;
+	int	i;
+	int	pos;
 
 	i = 0;
 	pos = 0;
@@ -36,20 +36,20 @@ int index_position(int *list, int size, int nb)
 /*
 ** generates index from list A
 */
-int *index_list(int *list, int size)
+int	*index_list(int *list, int size)
 {
-	int i;
-	int *index;
+	int	i;
+	int	*index;
 
 	index = duplicate_array(list, size);
 	i = 0;
 	while (i < size)
 	{
 		index[i] = index_position(list, size, list[i]);
-		i++; 
+		i++;
 	}
 	free(list);
-	return(index);
+	return (index);
 }
 
 /*
@@ -57,10 +57,10 @@ int *index_list(int *list, int size)
 ** value.
 */
 
-void duplicate_checker(t_stack *stack)
+void	duplicate_checker(t_stack *stack)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	while (i < stack->size)
@@ -82,18 +82,18 @@ void duplicate_checker(t_stack *stack)
 * then we check for duplicates
 */
 
-t_stack *get_arguments(int argc, char **argv)
+t_stack	*get_arguments(int argc, char **argv)
 {
-	int i;
-	t_stack *stack;
+	int		i;
+	t_stack	*stack;
 
 	i = 0;
 	stack = malloc(sizeof(t_stack));
 	stack->size = argc - 1;
 	stack->size_a = stack->size;
 	stack->size_b = 0;
-	stack->a = (int*)malloc(sizeof(int) * stack->size);
-	stack->b = (int*)malloc(sizeof(int) * stack->size);
+	stack->a = (int *)malloc(sizeof(int) * stack->size);
+	stack->b = (int *)malloc(sizeof(int) * stack->size);
 	while (i < stack->size)
 	{
 		stack->a[i] = ft_atoi(argv[i + 1], stack);
