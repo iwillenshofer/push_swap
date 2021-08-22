@@ -1,6 +1,6 @@
 <p align="center">
-	<img width="130px;" src="https://game.42sp.org.br/static/assets/images/42_logo_black.svg" align="center" alt="42" />&nbsp;&nbsp;&nbsp;
-	<img width="130px" src="https://game.42sp.org.br/static/assets/achievements/push_swapm.png" align="center" alt="push_swap" />
+	<img width="130px;" src="https://raw.githubusercontent.com/iwillenshofer/resources/main/images/42_logo_black.svg" align="center" alt="42" />&nbsp;&nbsp;&nbsp;
+	<img width="130px" src="https://raw.githubusercontent.com/iwillenshofer/resources/main/achievements/push_swap.png" align="center" alt="push_swap" />
 	<h1 align="center">push_swap</h1>
 </p>
 <p align="center">
@@ -23,7 +23,7 @@
 
 > _This project involves sorting data on a stack, with a limited set of instructions, and the smallest number of moves. To make this happen, you will have to manipulate various sorting algorithms and choose the most appropriate solution(s) for optimized data sorting._
 
-[Download the Subject ⤓](en.subject.pdf)
+
 
 <br>
 
